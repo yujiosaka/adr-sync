@@ -1,0 +1,25 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "docs/CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["dist", "package.json", "pnpm-lock.yaml", "docs/CHANGELOG.md"]
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "successCmd": "echo 'nextVer=${nextRelease.version}' >> $GITHUB_OUTPUT"
+      }
+    ]
+  ]
+}

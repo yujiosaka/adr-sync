@@ -1,0 +1,33 @@
+name: "ADR Sync"
+description: "A GitHub custom action to synchronize ADRs with GitHub Discussions"
+author: "Yuji Isobe"
+inputs:
+  branch:
+    description: "Branch to synchronize discussions with"
+    required: false
+    default: "main"
+  discussion-category:
+    description: "Category to submit GitHub Discussions"
+    required: false
+    default: "General"
+  title-regex:
+    description: "Regular expression to match ADR discussion titles"
+    required: false
+    default: '^\d{4}-[^.]*\.md$'
+  status-regex:
+    description: "Regular expression to extract statuses from ADR contents"
+    required: false
+    default: '##\s*Status\s+([^\s\n]+?)(?:\s+by\s.*)?\s*(?:\n|$)'
+  close-statuses:
+    description: "List of statuses to close discussions"
+    required: false
+    default: "Accepted, Superseded, Deprecated, Rejected"
+  github-token:
+    description: "GitHub token with necessary permissions to synchronize ADRs"
+    required: true
+runs:
+  using: "node20"
+  main: "dist/index.js"
+branding:
+  icon: "book-open"
+  color: "blue"

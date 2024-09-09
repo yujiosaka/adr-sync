@@ -89,7 +89,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist directroy should be commmitted for custom action to work
+# dist
 
 # Gatsby files
 .cache/

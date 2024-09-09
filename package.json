@@ -1,0 +1,55 @@
+{
+  "name": "adr-sync",
+  "version": "1.0.0",
+  "description": "A GitHub custom action to synchronize ADRs with GitHub Discussions.",
+  "type": "module",
+  "scripts": {
+    "build": "ncc build src/index.ts --minify",
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yujiosaka/adr-sync.git"
+  },
+  "keywords": ["adr", "adr-tools", "actions", "github-actions"],
+  "author": "Yuji Isobe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yujiosaka/adr-sync/issues"
+  },
+  "homepage": "https://github.com/yujiosaka/adr-sync#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@commitlint/cli": "19.4.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@octokit/rest": "^21.0.2",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "13.0.0",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/release-notes-generator": "14.0.1",
+    "@types/node": "^22.5.0",
+    "@vercel/ncc": "^0.38.1",
+    "husky": "9.1.5",
+    "js-yaml": "^4.1.0",
+    "lint-staged": "15.2.9",
+    "lodash.merge": "^4.6.2",
+    "semantic-release": "24.1.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "lint-staged": {
+    "**/*.*": ["biome check --write --no-errors-on-unmatched"]
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
